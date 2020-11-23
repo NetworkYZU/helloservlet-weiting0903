@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lendle
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/"})
+@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
 public class HelloServlet extends HttpServlet {
 
     @Override
@@ -25,10 +25,15 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         try(PrintWriter out=resp.getWriter()){
             //輸出
+            out.println("<html>");
             // <html>
+            out.println("<body>");
             // <body>
+            out.println(req.getRequestURI());
             //  <h1>Hello!</h1>
+            out.println("</body>");
             // </body>
+            out.println("</html>");
             // </html>
         }
     }
